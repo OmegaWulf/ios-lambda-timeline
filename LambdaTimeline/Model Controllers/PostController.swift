@@ -40,10 +40,30 @@ class PostController {
         guard let currentUser = Auth.auth().currentUser,
             let author = Author(user: currentUser) else { return }
         
-        let comment = Comment(text: text, author: author)
+        let comment = Comment(text: text, author: author, audioURL: nil)
         post.comments.append(comment)
         
         savePostToFirebase(post)
+    }
+    
+    func addVoiceComment(with audioURL: URL, to post: Post) {
+        guard let currentUser = Auth.auth().currentUser,
+            let author = Author(user: currentUser) else { return }
+        
+        do {
+            let data = try Data(contentsOf: audioURL)
+            
+            store(mediaData: data, mediaType: .audioComment) { (firebaseURL) in
+                let comment = Comment(text: nil, author: author, audioURL: firebaseURL)
+                
+                post.comments.append(comment)
+                self.savePostToFirebase(post)
+            }
+        } catch {
+            NSLog("Error adding voiceComment: \(error)")
+        }
+        
+        
     }
 
     func observePosts(completion: @escaping (Error?) -> Void) {
