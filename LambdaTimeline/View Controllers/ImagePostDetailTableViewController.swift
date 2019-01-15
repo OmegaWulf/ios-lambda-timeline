@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class ImagePostDetailTableViewController: UITableViewController, AVAudioRecorderDelegate {
+class ImagePostDetailTableViewController: UITableViewController, AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     
     var recorder: AVAudioRecorder?
     var recordingURL: URL?
@@ -18,6 +18,12 @@ class ImagePostDetailTableViewController: UITableViewController, AVAudioRecorder
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
     }
     
     func updateViews() {
@@ -85,7 +91,6 @@ class ImagePostDetailTableViewController: UITableViewController, AVAudioRecorder
         
         present(alert, animated: true, completion: nil)
         
-        
     }
     
     func showRecordAlert() {
@@ -141,7 +146,11 @@ class ImagePostDetailTableViewController: UITableViewController, AVAudioRecorder
         recordingURL = recorder?.url
         self.recorder = nil
         
-        dismiss(animated: true, completion: nil)
+        postController.addVoiceComment(with: recordingURL!, to: post)
+        
+        dismiss(animated: true) {
+            self.tableView.reloadData()
+        }
     }
     
     
@@ -156,6 +165,27 @@ class ImagePostDetailTableViewController: UITableViewController, AVAudioRecorder
         return newRecordingURL
     }
     
+    func playAudioForCell(atIndexPath indexPath: IndexPath) {
+        
+        guard let comment = post?.comments[indexPath.row + 1] else { return }
+        
+        guard let url = comment.audioURL else { return }
+        var player: AVAudioPlayer?
+        
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.delegate = self
+            player?.play()
+        } catch {
+            NSLog("Unable to start playing audio: \(error)")
+        }
+    }
+    
+//    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+//
+//        self.player = nil
+//    }
+    
     
     
     
@@ -168,10 +198,19 @@ class ImagePostDetailTableViewController: UITableViewController, AVAudioRecorder
         
         let comment = post?.comments[indexPath.row + 1]
         
-        cell.textLabel?.text = comment?.text
+        if comment?.audioURL != nil {
+            cell.textLabel?.text = "Click To Play Voice Comment"
+        } else {
+            cell.textLabel?.text = comment?.text
+        }
+        
         cell.detailTextLabel?.text = comment?.author.displayName
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        playAudioForCell(atIndexPath: indexPath)
     }
     
     var post: Post!
