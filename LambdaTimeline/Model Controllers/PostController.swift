@@ -35,6 +35,7 @@ class PostController {
         }
     }
     
+    
     func addComment(with text: String, to post: inout Post) {
         
         guard let currentUser = Auth.auth().currentUser,
@@ -62,9 +63,9 @@ class PostController {
         } catch {
             NSLog("Error adding voiceComment: \(error)")
         }
-        
-        
     }
+    
+
 
     func observePosts(completion: @escaping (Error?) -> Void) {
         

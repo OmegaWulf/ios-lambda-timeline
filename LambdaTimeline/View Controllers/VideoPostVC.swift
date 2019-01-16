@@ -16,6 +16,7 @@ class VideoPostVC: UIViewController {
     var isPlaying: Bool = false
     
     
+    @IBOutlet weak var postTitle: UITextField!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var videoView: UIView!
     
@@ -26,17 +27,46 @@ class VideoPostVC: UIViewController {
     }
     
     @IBAction func playButtonTapped(_ sender: Any) {
-        if !isPlaying {
+//        if !isPlaying {
             player?.play()
             playButton.isHidden = true
-            isPlaying = true
-        } else {
-            player?.pause()
-            playButton.isHidden = false
-            isPlaying = false
-        }
+//            isPlaying = true
+        
+             NotificationCenter.default.addObserver(self, selector:#selector(self.playerDidFinishPlaying(note:)),name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player?.currentItem)
+//        } else {
+//            player?.pause()
+//        }
     }
     
+    @objc func playerDidFinishPlaying(note: NSNotification){
+        //        print("Video Finished")
+        //        isPlaying = false
+        playButton.isHidden = false
+    }
+    
+    @IBAction func postButtonTapped(_ sender: Any) {
+        guard let text = postTitle.text, !text.isEmpty else { return }
+        let postCont = PostController()
+        
+        do {
+            let videoData = try Data(contentsOf: capturedVideoURL)
+            
+            postCont.createPost(with: text, ofType: .video, mediaData: videoData) { (success) in
+                guard success else {
+                    NSLog("Could not createPost")
+                    self.navigationController?.popToRootViewController(animated: true)
+                    return
+                }
+                
+                self.navigationController?.popToRootViewController(animated: true)
+                
+                
+            }
+        } catch {
+            NSLog("Could not convert video into data: \(error)")
+        }
+        
+    }
     
     func setupPlayer() {
         
@@ -45,6 +75,7 @@ class VideoPostVC: UIViewController {
         
         layer.frame = videoView.layer.bounds
         layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        
         
         videoView.layer.addSublayer(layer)
     }

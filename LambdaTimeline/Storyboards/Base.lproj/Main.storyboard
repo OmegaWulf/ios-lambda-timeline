@@ -169,29 +169,31 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfA-yf-AAd">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PN9-XO-1bc">
-                                                <rect key="frame" x="0.0" y="-31" width="375" height="190"/>
-                                                <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZU-Ql-Uem">
-                                                        <rect key="frame" x="75" y="72" width="225" height="175"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="175" id="CkN-C1-AAa"/>
-                                                            <constraint firstAttribute="width" constant="225" id="Z0v-Um-AZH"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button" image="play"/>
-                                                        <connections>
-                                                            <action selector="playButtonTapped:" destination="rpe-E6-spt" eventType="touchUpInside" id="tgz-b9-cBP"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PN9-XO-1bc">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="319"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstItem="kZU-Ql-Uem" firstAttribute="centerX" secondItem="PN9-XO-1bc" secondAttribute="centerX" id="k2c-lL-Cco"/>
-                                                    <constraint firstItem="kZU-Ql-Uem" firstAttribute="centerY" secondItem="PN9-XO-1bc" secondAttribute="centerY" id="rGA-Zr-GMA"/>
-                                                </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kZU-Ql-Uem">
+                                                <rect key="frame" x="62.5" y="72" width="250" height="175"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="175" id="CkN-C1-AAa"/>
+                                                    <constraint firstAttribute="width" constant="250" id="ot3-ks-QP7"/>
+                                                </constraints>
+                                                <state key="normal" title="Button" image="play"/>
+                                                <connections>
+                                                    <action selector="playButtonTapped:" destination="rpe-E6-spt" eventType="touchUpInside" id="tgz-b9-cBP"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="kZU-Ql-Uem" firstAttribute="centerY" secondItem="MfA-yf-AAd" secondAttribute="centerY" id="2c0-Mg-IBJ"/>
+                                            <constraint firstItem="PN9-XO-1bc" firstAttribute="top" secondItem="MfA-yf-AAd" secondAttribute="top" id="3Bb-NE-tdi"/>
+                                            <constraint firstAttribute="bottom" secondItem="PN9-XO-1bc" secondAttribute="bottom" id="YJ9-3q-1rb"/>
+                                            <constraint firstAttribute="trailing" secondItem="PN9-XO-1bc" secondAttribute="trailing" id="cct-ke-YRb"/>
+                                            <constraint firstItem="PN9-XO-1bc" firstAttribute="leading" secondItem="MfA-yf-AAd" secondAttribute="leading" id="fzt-EV-6Io"/>
+                                            <constraint firstItem="kZU-Ql-Uem" firstAttribute="centerX" secondItem="MfA-yf-AAd" secondAttribute="centerX" id="g8J-r2-XHG"/>
+                                        </constraints>
                                     </view>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Give your post a title:" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YfE-qe-SUg">
                                         <rect key="frame" x="0.0" y="320" width="375" height="30"/>
@@ -217,10 +219,15 @@
                         <viewLayoutGuide key="safeArea" id="mXf-IM-jEf"/>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="1cM-r3-V2n">
-                        <barButtonItem key="rightBarButtonItem" title="Post" id="i3m-7Z-lp5"/>
+                        <barButtonItem key="rightBarButtonItem" title="Post" id="i3m-7Z-lp5">
+                            <connections>
+                                <action selector="postButtonTapped:" destination="rpe-E6-spt" id="ssD-Lz-GPp"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="playButton" destination="kZU-Ql-Uem" id="i7c-ta-1g5"/>
+                        <outlet property="postTitle" destination="YfE-qe-SUg" id="ywm-G1-HJ9"/>
                         <outlet property="videoView" destination="PN9-XO-1bc" id="AdT-eQ-xrx"/>
                     </connections>
                 </viewController>
