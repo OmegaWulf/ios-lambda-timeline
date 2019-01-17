@@ -11,6 +11,7 @@
 		117F266D21EFE7740043A072 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 117F266B21EFE7740043A072 /* VideoCell.xib */; };
 		118D053A21E3E47F004F9C78 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 118D053921E3E47F004F9C78 /* GoogleService-Info.plist */; };
 		118D053E21E41B91004F9C78 /* UIImage+Scaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D053D21E41B91004F9C78 /* UIImage+Scaling.swift */; };
+		11AA78BC21F13ECC0049E225 /* Post+Mapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11AA78BB21F13ECC0049E225 /* Post+Mapping.swift */; };
 		11B77C3421EFCC0500DA34BE /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B77C3321EFCC0500DA34BE /* CameraVC.swift */; };
 		11B77C3621EFCC2100DA34BE /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B77C3521EFCC2100DA34BE /* CameraPreviewView.swift */; };
 		11B77C3821EFCDFA00DA34BE /* VideoPostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B77C3721EFCDFA00DA34BE /* VideoPostVC.swift */; };
@@ -44,6 +45,7 @@
 		117F266B21EFE7740043A072 /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		118D053921E3E47F004F9C78 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		118D053D21E41B91004F9C78 /* UIImage+Scaling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scaling.swift"; sourceTree = "<group>"; };
+		11AA78BB21F13ECC0049E225 /* Post+Mapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Post+Mapping.swift"; sourceTree = "<group>"; };
 		11B77C3321EFCC0500DA34BE /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
 		11B77C3521EFCC2100DA34BE /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
 		11B77C3721EFCDFA00DA34BE /* VideoPostVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPostVC.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				4646378F216FFD1B00E7FF73 /* Post.swift */,
+				11AA78BB21F13ECC0049E225 /* Post+Mapping.swift */,
 				46CFE6FA21714E6100E7FF73 /* Author.swift */,
 				46463791216FFDD900E7FF73 /* Comment.swift */,
 			);
@@ -409,6 +412,7 @@
 				46CFE7032171572600E7FF73 /* ImagePostCollectionViewCell.swift in Sources */,
 				4646379C2170091A00E7FF73 /* PostController.swift in Sources */,
 				464637992170048900E7FF73 /* FirebaseConvertible.swift in Sources */,
+				11AA78BC21F13ECC0049E225 /* Post+Mapping.swift in Sources */,
 				11B77C3421EFCC0500DA34BE /* CameraVC.swift in Sources */,
 				46A0366A21700F5100E7FF73 /* PostsCollectionViewController.swift in Sources */,
 				46D571F52173CF3E00E7FF73 /* UIImage+Ratio.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import Foundation
 import FirebaseAuth
+import MapKit
 
 enum MediaType: String {
     case image
@@ -15,7 +16,10 @@ enum MediaType: String {
     case video
 }
 
-class Post {
+class Post: NSObject {
+    
+    var geotag: CLLocationCoordinate2D?
+    
     
     init(title: String, mediaURL: URL, ratio: CGFloat? = nil, author: Author, timestamp: Date = Date()) {
         self.mediaURL = mediaURL

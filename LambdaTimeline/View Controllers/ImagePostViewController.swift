@@ -8,6 +8,7 @@
 
 import UIKit
 import Photos
+import MapKit
 
 class ImagePostViewController: ShiftableViewController {
     
@@ -23,6 +24,7 @@ class ImagePostViewController: ShiftableViewController {
     
     @IBOutlet weak var uglifySwitch: UISwitch!
     @IBOutlet weak var beautifySwitch: UISwitch!
+    @IBOutlet weak var geotagSwitch: UISwitch!
     
     
     @IBOutlet weak var filterControls: UIView!
@@ -30,6 +32,8 @@ class ImagePostViewController: ShiftableViewController {
     var postController: PostController!
     var post: Post?
     var imageData: Data?
+    
+    var geotag: CLLocationCoordinate2D?
     
     
     private let context = CIContext(options: nil)
@@ -101,6 +105,19 @@ class ImagePostViewController: ShiftableViewController {
     
     @IBAction func beautify(_ sender: Any) {
         updateImage()
+    }
+    
+    @IBAction func geotagTapped(_ sender: Any) {
+        setupGeoTag()
+    }
+    
+    
+    // Location Functions
+    
+    func setupGeoTag() {
+        
+        
+        
     }
     
     

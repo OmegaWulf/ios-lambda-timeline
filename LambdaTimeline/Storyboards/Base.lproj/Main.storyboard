@@ -389,11 +389,30 @@
                                             </switch>
                                         </subviews>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="74" translatesAutoresizingMaskIntoConstraints="NO" id="XWL-KH-Lsc">
+                                        <rect key="frame" x="8" y="175" width="337" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GeoTag" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DhP-FG-Pck">
+                                                <rect key="frame" x="0.0" y="0.0" width="214" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Wcy-0s-RMt">
+                                                <rect key="frame" x="288" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="geotagTapped:" destination="1Aw-4e-BW2" eventType="valueChanged" id="GTt-0p-J3S"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="XWL-KH-Lsc" secondAttribute="trailing" constant="30" id="3d5-sR-SkM"/>
                                     <constraint firstItem="cZH-6F-Gwl" firstAttribute="top" secondItem="rY3-ax-TeQ" secondAttribute="bottom" constant="3" id="3h5-TV-K3f"/>
                                     <constraint firstItem="vYd-Ys-PAM" firstAttribute="top" secondItem="cZH-6F-Gwl" secondAttribute="bottom" constant="3" id="8pd-rk-lvo"/>
+                                    <constraint firstItem="XWL-KH-Lsc" firstAttribute="top" secondItem="t1h-pw-yJ3" secondAttribute="bottom" constant="3" id="9Yk-q4-o6F"/>
                                     <constraint firstItem="rY3-ax-TeQ" firstAttribute="leading" secondItem="gXn-jW-X2o" secondAttribute="leading" constant="8" id="IrM-5Y-VF0"/>
                                     <constraint firstItem="cZH-6F-Gwl" firstAttribute="leading" secondItem="gXn-jW-X2o" secondAttribute="leading" constant="8" id="Kcu-B2-1DW"/>
                                     <constraint firstAttribute="trailing" secondItem="cZH-6F-Gwl" secondAttribute="trailing" constant="8" id="Qf1-78-afD"/>
@@ -405,6 +424,7 @@
                                     <constraint firstItem="MvP-90-r1K" firstAttribute="top" secondItem="gXn-jW-X2o" secondAttribute="top" constant="8" id="nug-vL-RYe"/>
                                     <constraint firstAttribute="trailing" secondItem="rY3-ax-TeQ" secondAttribute="trailing" constant="8" id="pOf-pL-bLU"/>
                                     <constraint firstItem="t1h-pw-yJ3" firstAttribute="leading" secondItem="gXn-jW-X2o" secondAttribute="leading" constant="8" id="rDX-br-G1C"/>
+                                    <constraint firstItem="XWL-KH-Lsc" firstAttribute="leading" secondItem="gXn-jW-X2o" secondAttribute="leading" constant="8" id="ynJ-ZC-lz6"/>
                                     <constraint firstItem="MvP-90-r1K" firstAttribute="leading" secondItem="gXn-jW-X2o" secondAttribute="leading" constant="8" id="zSo-hQ-4ZS"/>
                                     <constraint firstItem="t1h-pw-yJ3" firstAttribute="top" secondItem="vYd-Ys-PAM" secondAttribute="bottom" constant="3" id="zlb-F5-V2D"/>
                                 </constraints>
@@ -434,6 +454,7 @@
                         <outlet property="chooseImageButton" destination="VxD-cu-jHT" id="KVs-no-MbU"/>
                         <outlet property="contrastSlider" destination="ffU-rw-c2Z" id="f7m-2r-laO"/>
                         <outlet property="filterControls" destination="gXn-jW-X2o" id="nbp-ts-J5x"/>
+                        <outlet property="geotagSwitch" destination="Wcy-0s-RMt" id="SLJ-tI-oao"/>
                         <outlet property="imageView" destination="4eK-5F-H5h" id="e7m-c5-Xhz"/>
                         <outlet property="postButton" destination="hsH-Uv-tug" id="ZBn-KE-cpU"/>
                         <outlet property="saturationSlider" destination="T6q-6Q-g69" id="zS3-op-v3n"/>
