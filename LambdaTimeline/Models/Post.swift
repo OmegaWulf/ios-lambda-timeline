@@ -58,11 +58,14 @@ class Post: NSObject {
     }
     
     var dictionaryRepresentation: [String : Any] {
+        
         var dict: [String: Any] = [Post.mediaKey: mediaURL.absoluteString,
                 Post.mediaTypeKey: mediaType.rawValue,
                 Post.commentsKey: comments.map({ $0.dictionaryRepresentation }),
                 Post.authorKey: author.dictionaryRepresentation,
-                Post.timestampKey: timestamp.timeIntervalSince1970]
+                Post.timestampKey: timestamp.timeIntervalSince1970,
+                Post.longKey: geotag?.longitude as Any,
+                Post.latKey: geotag?.latitude as Any]
         
         guard let ratio = self.ratio else { return dict }
         
@@ -90,5 +93,7 @@ class Post: NSObject {
     static private let commentsKey = "comments"
     static private let timestampKey = "timestamp"
     static private let idKey = "id"
+    static private let longKey = "longitude"
+    static private let latKey = "latitude"
     
 }
