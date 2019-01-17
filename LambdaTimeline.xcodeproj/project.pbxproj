@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		117F266C21EFE7740043A072 /* VideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 117F266A21EFE7740043A072 /* VideoCell.swift */; };
+		117F266D21EFE7740043A072 /* VideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 117F266B21EFE7740043A072 /* VideoCell.xib */; };
 		118D053A21E3E47F004F9C78 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 118D053921E3E47F004F9C78 /* GoogleService-Info.plist */; };
 		118D053E21E41B91004F9C78 /* UIImage+Scaling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D053D21E41B91004F9C78 /* UIImage+Scaling.swift */; };
 		11B77C3421EFCC0500DA34BE /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B77C3321EFCC0500DA34BE /* CameraVC.swift */; };
@@ -38,6 +40,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		117F266A21EFE7740043A072 /* VideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCell.swift; sourceTree = "<group>"; };
+		117F266B21EFE7740043A072 /* VideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCell.xib; sourceTree = "<group>"; };
 		118D053921E3E47F004F9C78 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		118D053D21E41B91004F9C78 /* UIImage+Scaling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Scaling.swift"; sourceTree = "<group>"; };
 		11B77C3321EFCC0500DA34BE /* CameraVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraVC.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				46CFE7022171572600E7FF73 /* ImagePostCollectionViewCell.swift */,
+				117F266A21EFE7740043A072 /* VideoCell.swift */,
+				117F266B21EFE7740043A072 /* VideoCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,6 +293,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				117F266D21EFE7740043A072 /* VideoCell.xib in Resources */,
 				46463786216FDE4C00E7FF73 /* LaunchScreen.storyboard in Resources */,
 				46463783216FDE4C00E7FF73 /* Assets.xcassets in Resources */,
 				118D053A21E3E47F004F9C78 /* GoogleService-Info.plist in Resources */,
@@ -388,6 +395,7 @@
 				118D053E21E41B91004F9C78 /* UIImage+Scaling.swift in Sources */,
 				46CFE6FB21714E6100E7FF73 /* Author.swift in Sources */,
 				46CFE6F92170862C00E7FF73 /* ShiftableViewController.swift in Sources */,
+				117F266C21EFE7740043A072 /* VideoCell.swift in Sources */,
 				11B77C3621EFCC2100DA34BE /* CameraPreviewView.swift in Sources */,
 				4646377C216FDE4B00E7FF73 /* AppDelegate.swift in Sources */,
 				46CFE6FD217154F500E7FF73 /* Networking.swift in Sources */,
