@@ -40,6 +40,13 @@ class Post: NSObject {
             let timestampTimeInterval = dictionary[Post.timestampKey] as? TimeInterval,
             let captionDictionaries = dictionary[Post.commentsKey] as? [[String: Any]] else { return nil }
         
+        if let latitude = dictionary["latitude"] as? Double {
+            let longtitude = dictionary["longitude"] as? Double
+            
+            self.geotag = CLLocationCoordinate2D(latitude: latitude, longitude: longtitude!)
+        }
+        
+        
         self.mediaURL = mediaURL
         self.mediaType = mediaType
         self.ratio = dictionary[Post.ratioKey] as? CGFloat
@@ -82,4 +89,5 @@ class Post: NSObject {
     static private let commentsKey = "comments"
     static private let timestampKey = "timestamp"
     static private let idKey = "id"
+    
 }
