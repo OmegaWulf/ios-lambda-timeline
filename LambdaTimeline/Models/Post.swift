@@ -21,13 +21,14 @@ class Post: NSObject {
     var geotag: CLLocationCoordinate2D?
     
     
-    init(title: String, mediaURL: URL, ratio: CGFloat? = nil, author: Author, timestamp: Date = Date()) {
+    init(title: String, mediaURL: URL, ratio: CGFloat? = nil, author: Author, timestamp: Date = Date(), geotag: CLLocationCoordinate2D? = nil) {
         self.mediaURL = mediaURL
         self.ratio = ratio
         self.mediaType = .image
         self.author = author
         self.comments = [Comment(text: title, author: author, audioURL: nil)]
         self.timestamp = timestamp
+        self.geotag = geotag
     }
     
     init?(dictionary: [String : Any], id: String) {
