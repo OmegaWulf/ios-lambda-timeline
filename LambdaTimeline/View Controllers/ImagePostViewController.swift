@@ -8,9 +8,9 @@
 
 import UIKit
 import Photos
-import MapKit
+import CoreLocation
 
-class ImagePostViewController: ShiftableViewController {
+class ImagePostViewController: ShiftableViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleTextField: UITextField!
@@ -33,7 +33,11 @@ class ImagePostViewController: ShiftableViewController {
     var post: Post?
     var imageData: Data?
     
-    var geotag: CLLocationCoordinate2D?
+    var geotag: CLLocationCoordinate2D? {
+        didSet {
+            print("Have location")
+        }
+    }
     
     
     private let context = CIContext(options: nil)
@@ -115,9 +119,17 @@ class ImagePostViewController: ShiftableViewController {
     // Location Functions
     
     func setupGeoTag() {
-        
-        
-        
+        LocationHelper.shared.requestLocation()
+        LocationHelper.shared.locationManager.delegate = self
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.last {
+            
+            let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            
+            self.geotag = center
+        }
     }
     
     
